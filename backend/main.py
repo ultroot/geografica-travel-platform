@@ -3,10 +3,11 @@ from app.api.health import router as health_router
 from app.api.flights import router as flights_router
 from app.api.visas import router as visas_router
 from app.api.packages import router as packages_router
+from app.core.settings import APP_NAME, APP_VERSION
 
 app = FastAPI(
-    title="Geografica Travel API",
-    version="1.0.0"
+    title=APP_NAME,
+    version=APP_VERSION
 )
 
 app.include_router(health_router)

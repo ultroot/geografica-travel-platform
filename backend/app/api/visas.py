@@ -1,11 +1,14 @@
 from fastapi import APIRouter
+
+from app.schemas.visa import VisaResponse
 from app.services.visa_service import search_visas
 
-router = APIRouter(
-    prefix="/visas",
-    tags=["Visas"]
-)
+router = APIRouter(tags=["Visas"])
 
-@router.get("/")
+
+@router.get(
+    "/visas/",
+    response_model=VisaResponse
+)
 def get_visas():
     return search_visas()

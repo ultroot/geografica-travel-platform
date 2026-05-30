@@ -1,5 +1,7 @@
+from app.core.settings import AKBAR_PROVIDER
+
 def get_flights():
     return {
-        "provider": "Akbar Demo",
+        "provider": AKBAR_PROVIDER,
         "price": 12100
     }
