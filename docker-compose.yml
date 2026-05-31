@@ -1,0 +1,29 @@
+services:
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: geografica-api
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - ./backend/.env
+
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: geografica-frontend
+
+    ports:
+      - "3000:3000"
+
+    restart: unless-stopped
+
+    depends_on:
+      - backend
