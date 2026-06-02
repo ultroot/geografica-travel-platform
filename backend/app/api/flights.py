@@ -10,5 +10,13 @@ router = APIRouter(tags=["Flights"])
     "/flights/",
     response_model=FlightResponse
 )
-def get_flights():
-    return search_flights()
+def get_flights(
+    from_city: str = "",
+    to_city: str = "",
+    travel_date: str = ""
+):
+    return search_flights(
+        from_city,
+        to_city,
+        travel_date
+    )

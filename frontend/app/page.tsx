@@ -1,38 +1,38 @@
-"use client";
-
-import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
-  const [flights, setFlights] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch("http://localhost:8000/flights/")
-      .then((res) => res.json())
-      .then((data) => {
-        setFlights(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error(err);
-
-        setFlights({
-          error: String(err),
-        });
-
-        setLoading(false);
-      });
-  }, []);
-
   return (
-    <main style={{ padding: "20px" }}>
-      <h1>Debug Page</h1>
+    <>
+      <Navbar />
 
-      <p>Loading: {String(loading)}</p>
+      <main
+        style={{
+          minHeight: "100vh",
+          background:
+            "linear-gradient(to bottom,#081225,#111827)",
+          color: "white",
+          padding: "60px",
+          fontFamily: "Arial",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "60px",
+            marginBottom: "20px",
+          }}
+        >
+          Welcome to Geografica
+        </h1>
 
-      <pre>
-        {JSON.stringify(flights, null, 2)}
-      </pre>
-    </main>
+        <p
+          style={{
+            color: "#9ca3af",
+            fontSize: "22px",
+          }}
+        >
+          Compare flights, visas, hotels and travel packages.
+        </p>
+      </main>
+    </>
   );
 }
