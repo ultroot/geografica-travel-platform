@@ -1,74 +1,58 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./Navbar.css";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
+  const isActive = (path: string) => pathname === path;
+
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "20px 40px",
-        backgroundColor: "#111827",
-        borderBottom: "1px solid #374151",
-      }}
-    >
-      <Link
-        href="/"
-        style={{
-          color: "white",
-          textDecoration: "none",
-          fontSize: "28px",
-          fontWeight: "bold",
-        }}
-      >
+    <nav className="navbar">
+      <Link href="/" className="logo">
         Geografica
       </Link>
 
-      <div
-        style={{
-          display: "flex",
-          gap: "25px",
-        }}
-      >
+      <div className="navLinks">
         <Link
           href="/flights"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          className={`navLink ${isActive("/flights") ? "activeLink" : ""}`}
         >
           Flights
         </Link>
 
         <Link
-          href="/visas"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          href="/hotels"
+          className={`navLink ${isActive("/hotels") ? "activeLink" : ""}`}
         >
-          Visas
+          Hotels
         </Link>
 
         <Link
           href="/packages"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          className={`navLink ${isActive("/packages") ? "activeLink" : ""}`}
         >
           Packages
         </Link>
 
         <Link
-          href="/hotels"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          href="/visas"
+          className={`navLink ${isActive("/visas") ? "activeLink" : ""}`}
         >
-          Hotels
+          Visas
         </Link>
+      </div>
+
+      <div className="navLinks">
+        <button className="navLink">
+          Search
+        </button>
+
+        <button className="navLink">
+          Profile
+        </button>
       </div>
     </nav>
   );

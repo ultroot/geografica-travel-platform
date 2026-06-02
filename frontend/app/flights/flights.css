@@ -1,0 +1,562 @@
+    :root {
+    --purple-primary: #7c3aed;
+    --purple-secondary: #a855f7;
+    --purple-light: #d8b4fe;
+    --purple-soft: #f5efff;
+    --text-dark: #2e1065;
+    --white-glass: rgba(255, 255, 255, 0.72);
+    }
+
+    body {
+    margin: 0;
+    padding: 0;
+    }
+
+    .flightsPage {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+        circle at top left,
+        rgba(168, 85, 247, 0.18),
+        transparent 35%
+        ),
+        radial-gradient(
+        circle at bottom right,
+        rgba(124, 58, 237, 0.18),
+        transparent 35%
+        ),
+        linear-gradient(
+        135deg,
+        #faf7ff,
+        #f6f0ff,
+        #ffffff
+        );
+
+    color: var(--text-dark);
+
+    padding: 40px;
+    }
+
+    .heroSection {
+    text-align: center;
+
+    margin-bottom: 40px;
+    }
+
+    .heroTitle {
+    font-size: 56px;
+    font-weight: 800;
+
+    margin-bottom: 10px;
+
+    background: linear-gradient(
+        135deg,
+        var(--purple-primary),
+        var(--purple-secondary)
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    }
+
+    .heroSubtitle {
+    font-size: 18px;
+    opacity: 0.8;
+    }
+
+    .searchCard {
+    max-width: 1200px;
+
+    margin: 0 auto 40px auto;
+
+    padding: 30px;
+
+    border-radius: 28px;
+
+    background: var(--white-glass);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(168, 85, 247, 0.15);
+
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.08);
+    }
+
+    .searchGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+    }
+
+    .inputGroup {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .inputGroup label {
+    margin-bottom: 8px;
+
+    font-weight: 600;
+    }
+
+    .inputGroup input,
+    .inputGroup select {
+    padding: 14px;
+
+    border-radius: 16px;
+
+    border: 1px solid rgba(124, 58, 237, 0.2);
+
+    background: rgba(255, 255, 255, 0.8);
+    }
+
+    .searchButton {
+    margin-top: 28px;
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: linear-gradient(
+        135deg,
+        var(--purple-primary),
+        var(--purple-secondary)
+    );
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+    }
+
+    .searchButton:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 20px 35px rgba(124, 58, 237, 0.25);
+    }
+
+    .routeBanner {
+    max-width: 1200px;
+
+    margin: 0 auto 30px auto;
+
+    padding: 24px;
+
+    border-radius: 24px;
+
+    background: var(--white-glass);
+
+    backdrop-filter: blur(18px);
+
+    text-align: center;
+
+    border: 1px solid rgba(
+        168,
+        85,
+        247,
+        0.15
+    );
+    }
+
+    .routeCode {
+    font-size: 38px;
+    font-weight: 800;
+    }
+
+    .routeName {
+    margin-top: 10px;
+    opacity: 0.75;
+    }
+
+    .flightsGrid {
+    display: grid;
+
+    gap: 20px;
+
+    max-width: 1200px;
+
+    margin: auto;
+    }
+
+    .flightCard {
+    background: rgba(
+        255,
+        255,
+        255,
+        0.74
+    );
+
+    backdrop-filter: blur(18px);
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    border: 1px solid rgba(
+        168,
+        85,
+        247,
+        0.15
+    );
+
+    transition: all 0.3s ease;
+    }
+
+    .flightCard:hover {
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 25px 45px rgba(
+        124,
+        58,
+        237,
+        0.15
+        );
+    }
+
+    .flightHeader {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+    }
+
+    .airlineName {
+    font-size: 24px;
+    font-weight: 700;
+    }
+
+    .price {
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: var(--purple-primary);
+    }
+
+    .flightTimes {
+    margin-top: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-weight: 600;
+    }
+
+    .badge {
+    display: inline-block;
+
+    margin-top: 14px;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(
+        124,
+        58,
+        237,
+        0.12
+    );
+
+    color: var(--purple-primary);
+
+    font-weight: 700;
+
+    font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+    .searchGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .heroTitle {
+        font-size: 40px;
+    }
+
+    .routeCode {
+        font-size: 28px;
+    }
+    }
+    /* ========================================= */
+/* PREMIUM ANIMATIONS */
+/* ========================================= */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(124,58,237,0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(124,58,237,0.45),
+      0 0 50px rgba(168,85,247,0.25);
+  }
+
+  100% {
+    box-shadow: 0 0 0 rgba(124,58,237,0);
+  }
+}
+
+@keyframes floatingCard {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform:
+      translateY(-30px)
+      scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes flashBadge {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ========================================= */
+/* HERO */
+/* ========================================= */
+
+.heroTitle {
+  animation:
+    heroReveal 1s ease-out;
+}
+
+.heroSubtitle {
+  animation:
+    heroReveal 1.3s ease-out;
+}
+
+/* ========================================= */
+/* SEARCH CARD */
+/* ========================================= */
+
+.searchCard {
+  animation:
+    fadeUp 0.8s ease;
+}
+
+.searchCard:hover {
+  box-shadow:
+    0 25px 60px rgba(
+      124,
+      58,
+      237,
+      0.15
+    );
+}
+
+/* ========================================= */
+/* SEARCH BUTTON */
+/* ========================================= */
+
+.searchButton {
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 30px rgba(
+      124,
+      58,
+      237,
+      0.30
+    );
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.searchButton:hover {
+  transform:
+    translateY(-4px)
+    scale(1.02);
+
+  box-shadow:
+    0 20px 50px rgba(
+      124,
+      58,
+      237,
+      0.40
+    );
+}
+
+.searchButton:active {
+  transform:
+    translateY(1px)
+    scale(0.98);
+}
+
+/* ========================================= */
+/* ROUTE BANNER */
+/* ========================================= */
+
+.routeBanner {
+  animation:
+    fadeUp 1s ease;
+}
+
+/* ========================================= */
+/* FLIGHT CARDS */
+/* ========================================= */
+
+.flightCard {
+  animation:
+    fadeUp 0.8s ease;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.flightCard:hover {
+  transform:
+    translateY(-10px)
+    scale(1.01);
+
+  box-shadow:
+    0 30px 60px rgba(
+      124,
+      58,
+      237,
+      0.18
+    );
+}
+
+/* ========================================= */
+/* PRICE */
+/* ========================================= */
+
+.price {
+  text-shadow:
+    0 0 10px rgba(
+      168,
+      85,
+      247,
+      0.25
+    );
+}
+
+/* ========================================= */
+/* CHEAPEST BADGE */
+/* ========================================= */
+
+.badge {
+  font-size: 14px;
+
+  font-weight: 800;
+
+  animation:
+    flashBadge 1.2s infinite;
+
+  box-shadow:
+    0 0 20px rgba(
+      124,
+      58,
+      237,
+      0.25
+    );
+}
+
+/* ========================================= */
+/* CHEAPEST CARD */
+/* ========================================= */
+
+.flightCard:first-child {
+  border: 2px solid rgba(
+    124,
+    58,
+    237,
+    0.35
+  );
+
+  animation:
+    glowPulse 2s infinite;
+}
+
+/* ========================================= */
+/* INPUTS */
+/* ========================================= */
+
+.inputGroup input,
+.inputGroup select {
+  transition:
+    all 0.3s ease;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+  outline: none;
+
+  border-color:
+    var(--purple-primary);
+
+  box-shadow:
+    0 0 20px rgba(
+      124,
+      58,
+      237,
+      0.20
+    );
+}

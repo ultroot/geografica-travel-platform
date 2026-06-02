@@ -1,15 +1,49 @@
 "use client";
 
 import Navbar from "../../components/Navbar";
+import "./flights.css";
+
 import { useEffect, useState } from "react";
 
-export default function Home() {
+const AIRPORTS = [
+  "HYD - Hyderabad",
+  "DEL - Delhi",
+  "BOM - Mumbai",
+  "BLR - Bangalore",
+  "MAA - Chennai",
+  "CCU - Kolkata",
+  "COK - Kochi",
+  "GOI - Goa",
+  "AMD - Ahmedabad",
+  "PNQ - Pune",
+  "JAI - Jaipur",
+  "LKO - Lucknow",
+  "DXB - Dubai",
+  "AUH - Abu Dhabi",
+  "SHJ - Sharjah",
+  "DOH - Doha",
+  "MCT - Muscat",
+  "KWI - Kuwait",
+  "RUH - Riyadh",
+  "JED - Jeddah",
+  "SIN - Singapore",
+  "BKK - Bangkok",
+  "KUL - Kuala Lumpur",
+  "LHR - London Heathrow",
+  "CDG - Paris",
+  "FRA - Frankfurt",
+  "JFK - New York",
+  "IST - Istanbul",
+];
+
+export default function FlightsPage() {
   const [flights, setFlights] = useState<any>(null);
   const [loading, setLoading] = useState(true);
 
   const [fromCity, setFromCity] = useState("");
   const [toCity, setToCity] = useState("");
   const [travelDate, setTravelDate] = useState("");
+  const [passengers, setPassengers] = useState("1");
 
   useEffect(() => {
     fetchFlights();
@@ -22,9 +56,10 @@ export default function Home() {
       );
 
       const data = await response.json();
+
       setFlights(data);
     } catch (err) {
-      console.error("Fetch error:", err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -39,9 +74,10 @@ export default function Home() {
       );
 
       const data = await response.json();
+
       setFlights(data);
     } catch (err) {
-      console.error("Search error:", err);
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -51,231 +87,207 @@ export default function Home() {
     <>
       <Navbar />
 
-      <main
-        style={{
-          minHeight: "100vh",
-          padding: "40px",
-          background:
-            "linear-gradient(to bottom, #081225, #111827)",
-          color: "white",
-          fontFamily: "Arial, sans-serif",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "52px",
-            marginBottom: "10px",
-          }}
-        >
-          Geografica Travel Platform
-        </h1>
+      <main className="flightsPage">
+        <section className="heroSection">
+          <h1 className="heroTitle">
+            Find Your Next Journey
+          </h1>
 
-        <p
-          style={{
-            color: "#9ca3af",
-            marginBottom: "30px",
-            fontSize: "20px",
-          }}
-        >
-          Compare flight prices from multiple providers
-        </p>
+          <p className="heroSubtitle">
+            Premium flight comparison for travelers
+          </p>
+        </section>
 
-        <div
-          style={{
-            backgroundColor: "#1f2937",
-            padding: "25px",
-            borderRadius: "16px",
-            marginBottom: "30px",
-            border: "1px solid #374151",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
-          }}
-        >
-          <h2
-            style={{
-              marginBottom: "20px",
-              fontSize: "24px",
-            }}
-          >
-            Search Flights
-          </h2>
+        <section className="searchCard">
+          <div className="searchGrid">
+            <div className="inputGroup">
+              <label>From Airport</label>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr auto",
-              gap: "15px",
-              alignItems: "end",
-            }}
-          >
-            <div>
-              <label style={{ display: "block", marginBottom: "8px", color: "#9ca3af" }}>
-                From
-              </label>
               <input
-                type="text"
-                placeholder="Hyderabad"
+                list="from-airports"
+                placeholder="Search airport..."
                 value={fromCity}
-                onChange={(e) => setFromCity(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "14px",
-                  borderRadius: "10px",
-                  border: "1px solid #374151",
-                  backgroundColor: "#111827",
-                  color: "white",
-                }}
+                onChange={(e) =>
+                  setFromCity(e.target.value)
+                }
               />
+
+              <datalist id="from-airports">
+                {AIRPORTS.map((airport) => (
+                  <option
+                    key={airport}
+                    value={airport}
+                  />
+                ))}
+              </datalist>
             </div>
 
-            <div>
-              <label style={{ display: "block", marginBottom: "8px", color: "#9ca3af" }}>
-                To
-              </label>
+            <div className="inputGroup">
+              <label>To Airport</label>
+
               <input
-                type="text"
-                placeholder="Dubai"
+                list="to-airports"
+                placeholder="Search airport..."
                 value={toCity}
-                onChange={(e) => setToCity(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "14px",
-                  borderRadius: "10px",
-                  border: "1px solid #374151",
-                  backgroundColor: "#111827",
-                  color: "white",
-                }}
+                onChange={(e) =>
+                  setToCity(e.target.value)
+                }
               />
+
+              <datalist id="to-airports">
+                {AIRPORTS.map((airport) => (
+                  <option
+                    key={airport}
+                    value={airport}
+                  />
+                ))}
+              </datalist>
             </div>
 
-            <div>
-              <label style={{ display: "block", marginBottom: "8px", color: "#9ca3af" }}>
-                Travel Date
-              </label>
+            <div className="inputGroup">
+              <label>Travel Date</label>
+
               <input
                 type="date"
                 value={travelDate}
-                onChange={(e) => setTravelDate(e.target.value)}
-                style={{
-                  width: "100%",
-                  padding: "14px",
-                  borderRadius: "10px",
-                  border: "1px solid #374151",
-                  backgroundColor: "#111827",
-                  color: "white",
-                }}
+                onChange={(e) =>
+                  setTravelDate(e.target.value)
+                }
               />
             </div>
 
-            <button
-              onClick={searchFlights}
-              style={{
-                background: "linear-gradient(135deg,#2563eb,#1d4ed8)",
-                color: "white",
-                border: "none",
-                padding: "14px 24px",
-                borderRadius: "10px",
-                cursor: "pointer",
-                fontWeight: "bold",
-                height: "50px",
-              }}
-            >
-              Search
-            </button>
+            <div className="inputGroup">
+              <label>Passengers</label>
+
+              <select
+                value={passengers}
+                onChange={(e) =>
+                  setPassengers(e.target.value)
+                }
+              >
+                <option value="1">1 Passenger</option>
+                <option value="2">2 Passengers</option>
+                <option value="3">3 Passengers</option>
+                <option value="4">4 Passengers</option>
+              </select>
+            </div>
           </div>
-        </div>
+
+          <button
+            className="searchButton"
+            onClick={searchFlights}
+          >
+            Search Flights
+          </button>
+        </section>
+
+        {!loading &&
+          flights &&
+          flights.from_city &&
+          flights.to_city && (
+            <section className="routeBanner">
+              <div className="routeCode">
+                {flights.from_city} ✈ {flights.to_city}
+              </div>
+
+              <div className="routeName">
+                Travel Date: {flights.travel_date}
+              </div>
+            </section>
+          )}
 
         {loading && (
-          <div style={{ backgroundColor: "#1f2937", padding: "20px", borderRadius: "10px" }}>
+          <div className="routeBanner">
             Loading flights...
           </div>
         )}
 
         {!loading && flights && (
-          <>
-            {flights.from_city && flights.to_city && (
-              <div
-                style={{
-                  backgroundColor: "#172554",
-                  padding: "20px",
-                  borderRadius: "12px",
-                  marginBottom: "20px",
-                  border: "1px solid #1d4ed8",
-                }}
-              >
-                <h3 style={{ marginBottom: "10px" }}>Search Summary</h3>
+          <section className="flightsGrid">
+            <div className="flightCard">
+              <div className="flightHeader">
+                <div>
+                  <div className="airlineName">
+                    {flights.cheapest.airline}
+                  </div>
 
-                <p>
-                  <strong>Route:</strong> {flights.from_city} → {flights.to_city}
-                </p>
-
-                <p>
-                  <strong>Date:</strong> {flights.travel_date}
-                </p>
-              </div>
-            )}
-
-            <div
-              style={{
-                backgroundColor: "#065f46",
-                padding: "25px",
-                borderRadius: "12px",
-                marginBottom: "25px",
-              }}
-            >
-              <h2 style={{ fontSize: "28px", marginBottom: "15px" }}>
-                ✈ Cheapest Flight
-              </h2>
-
-              <p><strong>{flights.cheapest.airline}</strong></p>
-              <p>
-                {flights.cheapest.departure_time} → {flights.cheapest.arrival_time}
-              </p>
-              <p>Duration: {flights.cheapest.duration}</p>
-              <p>Provider: {flights.cheapest.provider}</p>
-              <p><strong>₹{flights.cheapest.price}</strong></p>
-            </div>
-
-            <div style={{ marginBottom: "20px", fontSize: "22px" }}>
-              Active Providers: <strong>{flights.total_providers}</strong>
-            </div>
-
-            <div style={{ display: "grid", gap: "15px" }}>
-              {flights.results.map((flight: any, index: number) => (
-                <div
-                  key={index}
-                  style={{
-                    backgroundColor: "#1f2937",
-                    padding: "20px",
-                    borderRadius: "12px",
-                    border: "1px solid #374151",
-                  }}
-                >
-                  <h3 style={{ fontSize: "24px", marginBottom: "10px" }}>
-                    {flight.airline}
-                  </h3>
-
-                  <p>
-                    {flight.departure_time} → {flight.arrival_time}
-                  </p>
-
-                  <p>Duration: {flight.duration}</p>
-
-                  <p>Provider: {flight.provider}</p>
-
-                  <p
-                    style={{
-                      fontSize: "20px",
-                      color: "#10b981",
-                      fontWeight: "bold",
-                      marginTop: "10px",
-                    }}
-                  >
-                    ₹{flight.price}
-                  </p>
+                  <div>
+                    Cheapest Available Option
+                  </div>
                 </div>
-              ))}
+
+                <div className="price">
+                  ₹{flights.cheapest.price}
+                </div>
+              </div>
+
+              <div className="flightTimes">
+                <span>
+                  {flights.cheapest.departure_time}
+                </span>
+
+                <span>
+                  {flights.cheapest.duration}
+                </span>
+
+                <span>
+                  {flights.cheapest.arrival_time}
+                </span>
+              </div>
+
+              <div className="badge">
+                CHEAPEST
+              </div>
             </div>
-          </>
+
+            {flights.results.map(
+              (
+                flight: any,
+                index: number
+              ) => (
+                <div
+                  className="flightCard"
+                  key={index}
+                >
+                  <div className="flightHeader">
+                    <div>
+                      <div className="airlineName">
+                        {flight.airline}
+                      </div>
+
+                      <div>
+                        {flight.provider}
+                      </div>
+                    </div>
+
+                    <div className="price">
+                      ₹{flight.price}
+                    </div>
+                  </div>
+
+                  <div className="flightTimes">
+                    <span>
+                      {flight.departure_time}
+                    </span>
+
+                    <span>
+                      {flight.duration}
+                    </span>
+
+                    <span>
+                      {flight.arrival_time}
+                    </span>
+                  </div>
+
+                  {index === 0 && (
+                    <div className="badge">
+                      BEST VALUE
+                    </div>
+                  )}
+                </div>
+              )
+            )}
+          </section>
         )}
       </main>
     </>
