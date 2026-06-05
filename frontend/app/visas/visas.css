@@ -1,0 +1,183 @@
+.visas-page {
+  min-height: 100vh;
+
+  background-image: url("/images/hotel-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  padding-bottom: 80px;
+}
+
+.visas-banner {
+  height: 280px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.banner-overlay {
+  background: rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  padding: 40px 60px;
+
+  border-radius: 24px;
+}
+
+.banner-overlay h1 {
+  color: #111827;
+
+  font-size: 4rem;
+  font-weight: 800;
+
+  margin-bottom: 12px;
+}
+
+.banner-overlay p {
+  color: #111827;
+  font-size: 1.1rem;
+}
+
+.visa-search-card {
+  max-width: 900px;
+
+  margin: 0 auto 30px auto;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 10px 40px rgba(139, 92, 246, 0.18);
+}
+
+.visa-form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 16px;
+}
+
+.visa-form-grid input,
+.visa-form-grid select {
+  height: 52px;
+
+  border-radius: 14px;
+
+  border: 1px solid #d8ccff;
+
+  padding: 0 14px;
+
+  background: white;
+
+  color: #111827;
+}
+
+.visa-search-btn {
+  width: 100%;
+
+  height: 56px;
+
+  margin-top: 20px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #a855f7
+  );
+
+  color: white;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.coming-soon-card {
+  max-width: 900px;
+
+  margin: 0 auto 30px auto;
+
+  background: rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+.coming-soon-card h2 {
+  color: #111827;
+}
+
+.coming-soon-card p {
+  color: #374151;
+}
+
+.popular-destinations {
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.popular-destinations h2 {
+  color: #111827;
+
+  margin-bottom: 20px;
+}
+
+.destination-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+}
+
+.destination-card {
+  background: rgba(255, 255, 255, 0.82);
+
+  backdrop-filter: blur(18px);
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  color: #111827;
+
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .visa-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .banner-overlay h1 {
+    font-size: 2.5rem;
+  }
+}

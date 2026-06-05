@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "../../components/Navbar";
 import "./flights.css";
 
 import { useEffect, useState } from "react";
@@ -85,7 +84,6 @@ export default function FlightsPage() {
 
   return (
     <>
-      <Navbar />
 
       <main className="flightsPage">
         <section className="heroSection">

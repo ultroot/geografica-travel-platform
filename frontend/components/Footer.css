@@ -1,0 +1,55 @@
+.footer {
+  text-align: center;
+  padding: 60px 20px;
+  margin-top: 80px;
+}
+
+.footerLine {
+  width: 220px;
+  height: 2px;
+  margin: 20px auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #8b5cf6,
+    transparent
+  );
+}
+
+.footerTitle {
+  color: #c4b5fd;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.footerText {
+  color: #d8ccff;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.footerName {
+  color: #7c3aed;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+  text-shadow:
+    0 0 10px rgba(124, 58, 237, 0.5),
+    0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.footerCompany {
+  color: #d8ccff;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.footerBrand {
+  color: #c4b5fd;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
