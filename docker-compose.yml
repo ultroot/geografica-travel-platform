@@ -27,3 +27,20 @@ services:
 
     depends_on:
       - backend
+
+  mariadb:
+    image: mariadb:11
+
+    container_name: geografica-db
+
+    environment:
+      MYSQL_ROOT_PASSWORD: geografica123
+      MYSQL_DATABASE: geografica
+
+    volumes:
+      - geografica_db_data:/var/lib/mysql
+
+    restart: unless-stopped
+
+volumes: 
+  geografica_db_data:
