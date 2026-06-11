@@ -4,8 +4,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-APP_NAME = os.getenv("APP_NAME")
-APP_VERSION = os.getenv("APP_VERSION")
+APP_NAME = os.getenv(
+    "APP_NAME",
+    "Geografica Travel API"
+)
+APP_VERSION = os.getenv(
+    "APP_VERSION",
+    "1.0.0"
+)
 
 TRAVELBOUTIQUE_PROVIDER = os.getenv("TRAVELBOUTIQUE_PROVIDER")
 AKBAR_PROVIDER = os.getenv("AKBAR_PROVIDER")
