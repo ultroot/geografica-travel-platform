@@ -29,3 +29,7 @@ jobs:
         run: |
           cd backend
           python -c "from main import app; print('FastAPI app loaded successfully')"
+
+      - name: Build Backend Docker Image
+        run: |
+          docker build -t geografica-backend ./backend
