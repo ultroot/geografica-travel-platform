@@ -25,7 +25,7 @@ jobs:
           cd backend
           pip install -r requirements.txt
 
-      - name: Verify Backend Imports
+      - name: Verify FastAPI Application
         run: |
           cd backend
-          python -c "print('Backend validation successful')"
+          python -c "from main import app; print('FastAPI app loaded successfully')"
